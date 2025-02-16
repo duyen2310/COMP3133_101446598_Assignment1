@@ -21,8 +21,25 @@ const resolvers = {
             return generateToken(user);
         },
 
-      
+        getAllEmployees: async (_, __, { user }) => {
+            if (!user) throw new AuthenticationError('Unauthorized');
+            return await Employee.find();
+        },
+
+        searchEmployeeByEid: async (_, { eid }, { user }) => {
+            if (!user) throw new AuthenticationError('Unauthorized');
+            return await Employee.findById(eid);
+        },
+
+        searchEmployeeByField: async (_, { designation, department }, { user }) => {
+            if (!user) throw new AuthenticationError('Unauthorized');
+            const filter = {};
+            if (designation) filter.designation = designation;
+            if (department) filter.department = department;
+            return await Employee.find(filter);
+        }
     },
+
     Mutation: {
         signup: async (_, { username, email, password }) => {
             const hashedPassword = await bcrypt.hash(password, 10);
@@ -30,8 +47,24 @@ const resolvers = {
             await user.save();
             return generateToken(user);
         },
+
+        addEmployee: async (_, { input }, { user }) => {
+            if (!user) throw new AuthenticationError('Unauthorized');
+            const employee = new Employee(input);
+            return await employee.save();
+        },
+
+        updateEmployee: async (_, { eid, input }, { user }) => {
+            if (!user) throw new AuthenticationError('Unauthorized');
+            return await Employee.findByIdAndUpdate(eid, input, { new: true });
+        },
+
+        deleteEmployee: async (_, { eid }, { user }) => {
+            if (!user) throw new AuthenticationError('Unauthorized');
+            await Employee.findByIdAndDelete(eid);
+            return 'Employee deleted';
+        }
     }
-    
 };
 
 module.exports = resolvers;
