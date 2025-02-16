@@ -28,7 +28,7 @@ This is the backend for an **Employee Management System** developed using **Node
 ## Installation Instructions
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/Student#_COMP3133_StudentID_Assignment1.git
+    git clone https://github.com/duyen2310/Student#_COMP3133_StudentID_Assignment1.git
     cd Student#_COMP3133_StudentID_Assignment1
     ```
 
@@ -40,8 +40,9 @@ This is the backend for an **Employee Management System** developed using **Node
 3. Set up environment variables:
     Create a `.env` file in the root of your project and add the following:
     ```plaintext
-    MONGO_URI=mongodb://localhost:27017/comp3133_StudentID_assigment1
-    JWT_SECRET=your_secret_key
+MONGO_URI=mongodb+srv://truongthuykyduyen:aJBwsfCGziVTGvsb@mycluster.a0u4z.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster
+DB_NAME=COMP3133_Assignment1
+JWT_SECRET=your_secret_key
     ```
 
 4. Start the development server:
@@ -53,5 +54,6 @@ This is the backend for an **Employee Management System** developed using **Node
 
 ## Environment Variables
 - `MONGO_URI`: The connection URI for your MongoDB instance.
+- `DB_NAME`: Database name
 - `JWT_SECRET`: The secret key for JWT authentication. Use a strong and secure secret.
 
