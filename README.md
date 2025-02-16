@@ -28,8 +28,8 @@ This is the backend for an **Employee Management System** developed using **Node
 ## Installation Instructions
 1. Clone the repository:
     ```bash
-    git clone https://github.com/duyen2310/Student#_COMP3133_StudentID_Assignment1.git
-    cd Student#_COMP3133_StudentID_Assignment1
+    git clone https://github.com/duyen2310/COMP3133_101446598_Assignment1.git
+    cd COMP3133_101446598_Assignment1
     ```
 
 2. Install the dependencies:
