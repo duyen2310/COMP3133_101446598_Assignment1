@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server-express');
-
+//CREATE SCHEMA FOR EACH 
 const typeDefs = gql`
     type User {
         username: String!

@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const EmployeeSchema = new mongoose.Schema({
     first_name: { type: String, required: true },
     last_name: { type: String, required: true },
+
+    //Email have to be unique
     email: { type: String, required: true, unique: true },
     gender: { type: String, enum: ['Male', 'Female', 'Other'], required: true },
     designation: { type: String, required: true },
