@@ -7,9 +7,14 @@ const typeDefs = require('./graphql/schema');
 const resolvers = require('./graphql/resolver');
 //auth
 const authMiddleware = require('./middleware/auth');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
+app.use(cors({
+    origin: "http://localhost:4200",
+    credentials: true,
+  }));
 //connect db 
 connectDB();
 
